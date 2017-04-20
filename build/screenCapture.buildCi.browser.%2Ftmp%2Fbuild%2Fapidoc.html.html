@@ -1,0 +1,938 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/domasx2/sequelize-fixtures#readme">sequelize-fixtures (v0.5.6)</a>
+</h1>
+<h4>sequelize fixture loader</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sequelize-fixtures">module sequelize-fixtures</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loadFile">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loadFiles">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFiles
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loadFixture">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFixture
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loadFixtures">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFixtures
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loader">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loader
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.reader">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>reader
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sequelize-fixtures.</span>loader.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sequelize-fixtures.</span>reader.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sequelize-fixtures.loader">module sequelize-fixtures.loader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loader.loader">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loader
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sequelize-fixtures.loader.prototype">module sequelize-fixtures.loader.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loader.prototype.loadFixture">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>loadFixture
+            <span class="apidocSignatureSpan">(fixture, models)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loader.prototype.loadFixtures">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>loadFixtures
+            <span class="apidocSignatureSpan">(fixtures, models)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.loader.prototype.prepFixtureData">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>prepFixtureData
+            <span class="apidocSignatureSpan">(data, Model)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sequelize-fixtures.reader">module sequelize-fixtures.reader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.reader.reader">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.</span>reader
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sequelize-fixtures.reader.</span>PARSERS</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sequelize-fixtures.reader.prototype">module sequelize-fixtures.reader.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.reader.prototype.readFile">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.reader.prototype.readFileGlob">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFileGlob
+            <span class="apidocSignatureSpan">(globpath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sequelize-fixtures.reader.prototype.readFiles">
+            function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFiles
+            <span class="apidocSignatureSpan">(filenames)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sequelize-fixtures" id="apidoc.module.sequelize-fixtures">module sequelize-fixtures</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loadFile" id="apidoc.element.sequelize-fixtures.loadFile">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFile = function () {
+    if (arguments.length &lt; 2) {
+        throw new Error('Insufficient arguments');
+    } else {
+        var fixtures = arguments[0], models = arguments[1], options, i, cb, promise;
+        for(i = 2; i &lt; arguments.length; i++) {
+            if (typeof arguments[i] === 'object') options = arguments[i];
+            else if (typeof arguments[i] === 'function') cb = arguments[i];
+        }
+        promise = fn(fixtures, models, initopts(options));
+        if (cb) {
+            console.warn("Sequelize-fixtures: callback arguments are deprecated, please use returned promises.");
+            promise.then(function () {
+                cb();
+            }, function (err) {
+                cb(err);
+            }).catch(function (err){
+                cb(err);
+            });
+        }
+        return promise;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//a map of [model name] : model
+//see offical example on how to load models
+//https://github.com/sequelize/express-example/blob/master/models/index.js
+const models = require('./models');
+
+//from file
+sequelize_fixtures.<span class="apidocCodeKeywordSpan">loadFile</span>('fixtures/test_data.json', models).then(function
+(){
+    doStuffAfterLoad();
+});
+
+//can use glob syntax to select multiple files
+sequelize_fixtures.loadFile('fixtures/*.json', models).then(function(){
+    doStuffAfterLoad();
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loadFiles" id="apidoc.element.sequelize-fixtures.loadFiles">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFiles
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFiles = function () {
+    if (arguments.length &lt; 2) {
+        throw new Error('Insufficient arguments');
+    } else {
+        var fixtures = arguments[0], models = arguments[1], options, i, cb, promise;
+        for(i = 2; i &lt; arguments.length; i++) {
+            if (typeof arguments[i] === 'object') options = arguments[i];
+            else if (typeof arguments[i] === 'function') cb = arguments[i];
+        }
+        promise = fn(fixtures, models, initopts(options));
+        if (cb) {
+            console.warn("Sequelize-fixtures: callback arguments are deprecated, please use returned promises.");
+            promise.then(function () {
+                cb();
+            }, function (err) {
+                cb(err);
+            }).catch(function (err){
+                cb(err);
+            });
+        }
+        return promise;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//can use glob syntax to select multiple files
+sequelize_fixtures.loadFile('fixtures/*.json', models).then(function(){
+    doStuffAfterLoad();
+});
+
+//array of files
+sequelize_fixtures.<span class="apidocCodeKeywordSpan">loadFiles</span>(['fixtures/users.json', 'fixtures/data*.json
+'], models).then(function(){
+    doStuffAfterLoad();
+});
+
+//specify file encoding (default utf8)
+sequelize_fixtures.loadFile('fixtures/*.json', models, { encoding: 'windows-1257'}).then(function(){
+    doStuffAfterLoad();
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loadFixture" id="apidoc.element.sequelize-fixtures.loadFixture">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFixture
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFixture = function () {
+    if (arguments.length &lt; 2) {
+        throw new Error('Insufficient arguments');
+    } else {
+        var fixtures = arguments[0], models = arguments[1], options, i, cb, promise;
+        for(i = 2; i &lt; arguments.length; i++) {
+            if (typeof arguments[i] === 'object') options = arguments[i];
+            else if (typeof arguments[i] === 'function') cb = arguments[i];
+        }
+        promise = fn(fixtures, models, initopts(options));
+        if (cb) {
+            console.warn("Sequelize-fixtures: callback arguments are deprecated, please use returned promises.");
+            promise.then(function () {
+                cb();
+            }, function (err) {
+                cb(err);
+            }).catch(function (err){
+                cb(err);
+            });
+        }
+        return promise;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return promise;
+        }
+    };
+}
+
+exports.loadFixture = wrap(function(fixture, models, options) {
+    var loader = new Loader(options);
+    return loader.<span class="apidocCodeKeywordSpan">loadFixture</span>(fixture, models);
+});
+
+exports.loadFixtures = wrap(function(fixtures, models, options) {
+    var loader = new Loader(options);
+    return loader.loadFixtures(fixtures, models);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loadFixtures" id="apidoc.element.sequelize-fixtures.loadFixtures">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loadFixtures
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFixtures = function () {
+    if (arguments.length &lt; 2) {
+        throw new Error('Insufficient arguments');
+    } else {
+        var fixtures = arguments[0], models = arguments[1], options, i, cb, promise;
+        for(i = 2; i &lt; arguments.length; i++) {
+            if (typeof arguments[i] === 'object') options = arguments[i];
+            else if (typeof arguments[i] === 'function') cb = arguments[i];
+        }
+        promise = fn(fixtures, models, initopts(options));
+        if (cb) {
+            console.warn("Sequelize-fixtures: callback arguments are deprecated, please use returned promises.");
+            promise.then(function () {
+                cb();
+            }, function (err) {
+                cb(err);
+            }).catch(function (err){
+                cb(err);
+            });
+        }
+        return promise;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            model: 'Foo',
+            data: {
+                propA: 'baz',
+                propB: 3
+            }
+        }
+    ];
+    sequelize_fixtures.<span class="apidocCodeKeywordSpan">loadFixtures</span>(fixtures, models).then(function(){
+        doStuffAfterLoad();
+    });
+```
+
+### File formats
+
+#### json
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loader" id="apidoc.element.sequelize-fixtures.loader">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loader
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loader = function (options) {
+    this.options = options;
+    this.saved = 0;
+    this.skipped = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.reader" id="apidoc.element.sequelize-fixtures.reader">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>reader
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reader = function (options) {
+    options.encoding = options.encoding || 'utf8';
+    this.options = options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sequelize-fixtures.loader" id="apidoc.module.sequelize-fixtures.loader">module sequelize-fixtures.loader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loader.loader" id="apidoc.element.sequelize-fixtures.loader.loader">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>loader
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loader = function (options) {
+    this.options = options;
+    this.saved = 0;
+    this.skipped = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sequelize-fixtures.loader.prototype" id="apidoc.module.sequelize-fixtures.loader.prototype">module sequelize-fixtures.loader.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loader.prototype.loadFixture" id="apidoc.element.sequelize-fixtures.loader.prototype.loadFixture">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>loadFixture
+        <span class="apidocSignatureSpan">(fixture, models)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFixture = function (fixture, models) {
+    var buildOptions = fixture.buildOptions,
+        saveOptions = fixture.saveOptions,
+        onError = function(err) {
+            if (err instanceof Error) {
+                throw err;
+            } else {
+                throw new Error(JSON.stringify(err));
+            }
+        };
+
+    if (typeof fixture !== 'object') throw new Error('expected fixture to be object, is ' + (typeof fixture));
+    else if (!fixture.model) throw new Error('model for a fixture is undefined');
+    else if (!fixture.data) throw new Error('data undefined for fixture');
+
+    var Model = models[fixture.model],
+        self = this;
+
+    if (!Model) {
+        throw new Error('Model not found: ' + fixture.model);
+    } else if (typeof Model === 'function') {
+        throw new Error('models.' + fixture.model + ' appears to be a function. Perhaps you are importing model factory function
+? You should then use sequelize.import to create your model, see https://github.com/sequelize/express-example/blob/master/models
+/index.js#L17');
+    } else if (!Model.findOne) {
+        throw new Error('models.' + fixture.model + ' is not a sequelize model.');
+    }
+
+    return this.prepFixtureData(fixture.data, Model).spread(function(data, many2many) {
+        var setManyToMany = function(instance) {
+            //set many2many assocs if there are any
+            var promises = [];
+
+            if (Object.keys(many2many).length) {
+                //each assoc
+                Object.keys(many2many).forEach(function(key) {
+                    var assoc = Model.associations[key];
+
+                    //each associated instance
+                    many2many[key].forEach(function(relinst) {
+
+                        //make options object with transaction if any, through table attrs if any
+                        var options = objectAssign({},
+                            self.options.transaction ? {transaction: self.options.transaction} : {},
+                            relinst._through || {});
+
+                        //and add related instance
+                        promises.push(instance[assoc.accessors.add](relinst.instance, options));
+                    });
+                });
+            }
+
+            return Promise.all(promises);
+        };
+
+        var where = {};
+        Object.keys(Model.rawAttributes).forEach(function(k) {
+            var fieldType = Model.rawAttributes[k].type.constructor.key;
+            if (data.hasOwnProperty(k) &amp;&amp; (!fixture.keys || fixture.keys.indexOf(k) !== -1) &amp;&amp; fieldType !== 'GEOMETRY' &amp;&amp; fieldType
+ !== 'VIRTUAL') {
+                //postgres
+                if (fieldType === 'JSONB') {
+                    where[k] = {
+                        $contains: data[k]
+                    };
+                } else if (Model.rawAttributes[k].hasOwnProperty('set')) {
+                    var val = null;
+                    Model.setDataValue = function(name, value) {
+                        val = value;
+                    }
+                    // The model has set defined so it may do some conversion of the data
+                    // (e.g. serializing a JSON blob.)
+                    Model.rawAttributes[k].set.call(Model, data[k]);
+
+                    // don't include VIRTUAL column in filter condition
+                    where[k] = val;
+                } else {
+                    where[k] = data[k];
+                }
+            }
+        });
+
+        var findOptions = {where: where};
+        if (self.options.transaction) {
+            findOptions.transaction = self.options.transaction;
+        }
+
+        return Model.find(findOptions).then(function(instance) {
+            if (instance) {
+                self.skipped++;
+                return setManyToMany(instance);
+            }
+
+            if (self.options.transaction) {
+                if (!saveOptions) {
+                    saveOptions = {};
+                }
+                saveOptions.transaction = self.options.transaction;
+            }
+
+            return Model
+                .build(data, buildOptions)
+                .save(saveOptions).then( ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return promise;
+        }
+    };
+}
+
+exports.loadFixture = wrap(function(fixture, models, options) {
+    var loader = new Loader(options);
+    return loader.<span class="apidocCodeKeywordSpan">loadFixture</span>(fixture, models);
+});
+
+exports.loadFixtures = wrap(function(fixtures, models, options) {
+    var loader = new Loader(options);
+    return loader.loadFixtures(fixtures, models);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loader.prototype.loadFixtures" id="apidoc.element.sequelize-fixtures.loader.prototype.loadFixtures">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>loadFixtures
+        <span class="apidocSignatureSpan">(fixtures, models)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFixtures = function (fixtures, models) {
+    return Promise.each(fixtures, function(fixture) {
+        return this.loadFixture(fixture, models);
+    }.bind(this)).then(function() {
+        return Promise.resolve(this.saved);
+    }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            model: 'Foo',
+            data: {
+                propA: 'baz',
+                propB: 3
+            }
+        }
+    ];
+    sequelize_fixtures.<span class="apidocCodeKeywordSpan">loadFixtures</span>(fixtures, models).then(function(){
+        doStuffAfterLoad();
+    });
+```
+
+### File formats
+
+#### json
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.loader.prototype.prepFixtureData" id="apidoc.element.sequelize-fixtures.loader.prototype.prepFixtureData">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.loader.prototype.</span>prepFixtureData
+        <span class="apidocSignatureSpan">(data, Model)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepFixtureData = function (data, Model) {
+    var self = this,
+        result = {},
+        promises = [],
+        many2many = {};
+
+    // Allows an external caller to modify the data
+    // before it is evaluated
+    if (this.options.modifyFixtureDataFn) {
+        data = this.options.modifyFixtureDataFn(data, Model);
+    }
+
+    // Allows an external caller to do some transforms to the data
+    // before it is saved
+    if (this.options.transformFixtureDataFn) {
+        result = this.options.transformFixtureDataFn(data, Model);
+    }
+
+    Object.keys(data).forEach(function(key) {
+        var foundInThroughName = null;
+        // For Sequelize &lt; 3.0.0 compatibility (using for instance "actorsmovies" instead of "actors" or "movies")
+        Object.keys(Model.associations).forEach(function(assoc_name) {
+            if(Model.associations[assoc_name].options &amp;&amp; (Model.associations[assoc_name].options.through == key || Model.associations
+[assoc_name].options.as == key)) {
+                return foundInThroughName = assoc_name;
+            }
+        });
+        var assoc = Model.associations[foundInThroughName || key],
+            val = data[key];
+
+        if (assoc) {
+            if (assoc.associationType === 'BelongsTo') {
+                var where = {};
+                where[assoc.target.primaryKeyField] = val;
+
+                var options = typeof val === 'object' ? { where: val } : { where: where };
+                if (self.options.transaction)
+                    options.transaction = self.options.transaction;
+
+                promises.push(
+                    (typeof val === 'object' ?  assoc.target.find(options) : assoc.target.findOne(options))
+                    .then(function(obj) {
+                        result[assoc.identifier] = obj[assoc.target.primaryKeyField || 'id'];
+                        return Promise.resolve();
+                    })
+                );
+            } else if (assoc.associationType === 'HasMany' || assoc.associationType === 'BelongsToMany') {
+
+                if (Array.isArray(val)) {
+                    many2many[assoc.associationAccessor] = [];
+                    val.forEach(function(v) {
+
+                        var options  = {},
+                            where,
+                            _through = null;
+
+                        //find by fields
+                        if (typeof v === 'object') {
+                            where = objectAssign({}, v);
+                            if (where._through) {
+                                _through = where._through;
+                                delete where._through;
+                            }
+
+                        //find by id
+                        } else {
+                            where = {};
+                            where[assoc.target.primaryKeyField] = v;
+                        }
+
+                        options.where = where;
+
+                        if (self.options.transaction) {
+                            options.transaction = self.options.transaction;
+                        }
+
+                        promises.push(
+                            (typeof v === 'object' ?  assoc.target.find(options) : assoc.target.findOne(options))
+                            .then(function(obj) {
+                                many2many[assoc.associationAccessor].push({
+                                    instance: obj,
+                                    _through: _through
+                                });
+                                return Promise.resolve();
+                            })
+                        );
+                    });
+                } else {
+                    throw new Error('HasMany associations must be arrays of where clauses');
+                }
+            } else {
+                throw new Error('Only BelongsTo &amp; HasMany associations are supported');
+            }
+
+        } else {
+            if (Model.attributes.hasOwnProperty(key)) {
+                result[key] = val;
+            } else {
+                console.warn('attribute "' + key +"' not defined on  model '" + Model.name + "'.");
+            } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        throw new Error('Model not found: ' + fixture.model);
+    } else if (typeof Model === 'function') {
+        throw new Error('models.' + fixture.model + ' appears to be a function. Perhaps you are importing model factory
+ function? You should then use sequelize.import to create your model, see https://github.com/sequelize/express-example/blob/master
+/models/index.js#L17');
+    } else if (!Model.findOne) {
+        throw new Error('models.' + fixture.model + ' is not a sequelize model.');
+    }
+
+    return this.<span class="apidocCodeKeywordSpan">prepFixtureData</span>(fixture.data, Model).spread(function(data, many2many) {
+        var setManyToMany = function(instance) {
+//set many2many assocs if there are any
+var promises = [];
+
+if (Object.keys(many2many).length) {
+    //each assoc
+    Object.keys(many2many).forEach(function(key) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sequelize-fixtures.reader" id="apidoc.module.sequelize-fixtures.reader">module sequelize-fixtures.reader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.reader.reader" id="apidoc.element.sequelize-fixtures.reader.reader">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.</span>reader
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reader = function (options) {
+    options.encoding = options.encoding || 'utf8';
+    this.options = options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sequelize-fixtures.reader.prototype" id="apidoc.module.sequelize-fixtures.reader.prototype">module sequelize-fixtures.reader.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.reader.prototype.readFile" id="apidoc.element.sequelize-fixtures.reader.prototype.readFile">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function () {
+    var ret = new Promise(INTERNAL);
+    ret._captureStackTrace();
+    ret._pushContext();
+    var value = tryCatch(fn).apply(this, arguments);
+    ret._popContext();
+    ret._resolveFromSyncValue(value);
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Reader.prototype.readFileGlob = function(globpath){
+    var self = this, result = [];
+    return glob(globpath).then(function(filenames) {
+        if (!filenames.length) {
+            throw new Error("No files matching '" + globpath + "' found.");
+        }
+        return Promise.each(filenames, function(filename) {
+            return self.<span class="apidocCodeKeywordSpan">readFile</span>(filename).then(function(res) {
+                result = result.concat(res);
+            });
+        }).then(function() {
+            return result;
+        });
+    });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.reader.prototype.readFileGlob" id="apidoc.element.sequelize-fixtures.reader.prototype.readFileGlob">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFileGlob
+        <span class="apidocSignatureSpan">(globpath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFileGlob = function (globpath){
+    var self = this, result = [];
+    return glob(globpath).then(function(filenames) {
+        if (!filenames.length) {
+            throw new Error("No files matching '" + globpath + "' found.");
+        }
+        return Promise.each(filenames, function(filename) {
+            return self.readFile(filename).then(function(res) {
+                result = result.concat(res);
+            });
+        }).then(function() {
+            return result;
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.loadFixtures = wrap(function(fixtures, models, options) {
+var loader = new Loader(options);
+return loader.loadFixtures(fixtures, models);
+});
+
+exports.loadFile = wrap(function(filename, models, options) {
+var loader = new Loader(options), reader = new Reader(options);
+return reader.<span class="apidocCodeKeywordSpan">readFileGlob</span>(filename).then(function(fixtures) {
+    return loader.loadFixtures(fixtures, models);
+});
+});
+
+exports.loadFiles = wrap(function(filenames, models, options) {
+var loader = new Loader(options), reader = new Reader(options);
+return reader.readFiles(filenames).then(function(fixtures){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sequelize-fixtures.reader.prototype.readFiles" id="apidoc.element.sequelize-fixtures.reader.prototype.readFiles">
+        function <span class="apidocSignatureSpan">sequelize-fixtures.reader.prototype.</span>readFiles
+        <span class="apidocSignatureSpan">(filenames)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFiles = function (filenames){
+    var self = this, result = [];
+    return Promise.each(filenames, function(filename) {
+        return self.readFileGlob(filename).then(function(res) {
+            result = result.concat(res);
+        });
+    }).then(function() {
+        return result;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return reader.readFileGlob(filename).then(function(fixtures) {
+        return loader.loadFixtures(fixtures, models);
+    });
+});
+
+exports.loadFiles = wrap(function(filenames, models, options) {
+    var loader = new Loader(options), reader = new Reader(options);
+    return reader.<span class="apidocCodeKeywordSpan">readFiles</span>(filenames).then(function(fixtures){
+        return loader.loadFixtures(fixtures, models);
+    });
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
